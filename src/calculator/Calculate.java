@@ -42,7 +42,7 @@ public class Calculate {
       listOfIntegers.addAll(Arrays.asList(7,5));
       listOfIntegers.stream().mapToInt(a -> a).sum();
       Integer mul = listOfIntegers.stream().reduce(1, (a, b) -> a * b);
-      System.out.println(mul);
+      System.out.println("la multiplicacion es: "+mul);
 
   }
 
@@ -53,7 +53,7 @@ public class Calculate {
               .map(v -> new AbstractMap.SimpleEntry<>(v.getKey(), ((double) v.getValue() / divisor)))
               .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
               .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (x, y) -> y, LinkedHashMap::new));
-      System.out.println(result);
+      System.out.println("La division es: "+result);
   }
 
 }
