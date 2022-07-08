@@ -24,6 +24,7 @@ public class Calculate {
               .map(valor1-> {return valor1 - listadoNumeros2.get(contador.getAndIncrement());})
               .forEach(valor1 -> System.out.println(valor1));
   }
+
   public void potencia(){
       Stream.of(1,2,3,4,5)
               .filter(mul -> mul > 3)
@@ -40,6 +41,10 @@ public class Calculate {
 
   }
 
+    /**
+     * propongo  otro  metodo de hacer una division  donde tengo un arreglo de nombre  edad
+     * donde tojo el valor de edad y hago la division por 5
+     */
   public void div(){
       Map<String, Integer> listadoMapper = Map.of("Jerry", 7, "Tom", 30);
       double divisor = 5;

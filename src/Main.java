@@ -6,6 +6,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
+        System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
+        System.out.println("Ingresar el valor del Arreglo 1");
         Scanner in = new Scanner(System.in);
         Calculate  calculate = new Calculate();
         System.out.println("Ingresar numero 1");
@@ -17,7 +20,7 @@ public class Main {
 
 
         System.out.println("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
-
+        System.out.println("Ingresar el valor del Arreglo 2");
 
         System.out.println("Ingresar numero 1");
         Double numero4 = in.nextDouble();
@@ -30,7 +33,7 @@ public class Main {
         calculate.setListadoNumeros1(listaNumerosIngresados1);
 
         List<Double> listaNumerosIngresados2 = Arrays.asList(numero4,numero5,numero6) ;
-        calculate.setListadoNumeros1(listaNumerosIngresados2);
+        calculate.setListadoNumeros2(listaNumerosIngresados2);
 
 
         calculate.suma(calculate.getListadoNumeros1(),calculate.getListadoNumeros2());
