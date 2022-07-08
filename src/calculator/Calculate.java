@@ -1,32 +1,28 @@
 package calculator;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Calculate {
-  public void suma(){
-      Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-              .filter(i -> i % 2 == 0)
-              .skip(3)
-              .forEach(i -> System.out.println("La suma es: "+(i+i)));
-      System.out.println("");
+    List<Double> listadoNumeros1 = Arrays.asList();
+    List<Double> listadoNumeros2 = Arrays.asList();
+
+
+    public void suma( List<Double> listadoNumeros1, List<Double> listadoNumeros2){
+        AtomicInteger contador = new AtomicInteger();
+            listadoNumeros1.stream()
+                .map(valor1-> {return valor1 + listadoNumeros2.get(contador.getAndIncrement());})
+                .forEach(valor1 -> System.out.println(valor1));
   }
 
-  public void resta(){
-      List<Integer> gastos= new ArrayList<Integer>();
-
-      int total=0;
-      gastos.add(-100);
-      gastos.add(200);
-      gastos.add(300);
-
-      for(int gasto : gastos) {
-
-          total+=gasto;
-      }
-
-      System.out.println("La resta es: "+total);
+  public void resta(List<Double> listadoNumeros1, List<Double> listadoNumeros2){
+      AtomicInteger contador = new AtomicInteger();
+      listadoNumeros1.stream()
+              .map(valor1-> {return valor1 - listadoNumeros2.get(contador.getAndIncrement());})
+              .forEach(valor1 -> System.out.println(valor1));
   }
   public void potencia(){
       Stream.of(1,2,3,4,5)
@@ -34,15 +30,13 @@ public class Calculate {
               .peek(e -> System.out.println("La potencia es: "+e*e))
 
               .collect(Collectors.toList());
-
   }
 
-  public void multi(){
-      List<Integer> listOfIntegers = new ArrayList<>();
-      listOfIntegers.addAll(Arrays.asList(7,5));
-      listOfIntegers.stream().mapToInt(a -> a).sum();
-      Integer mul = listOfIntegers.stream().reduce(1, (a, b) -> a * b);
-      System.out.println("la multiplicacion es: "+mul);
+  public void multi(List<Double> listadoNumeros1, List<Double> listadoNumeros2){
+      AtomicInteger contador = new AtomicInteger();
+      listadoNumeros1.stream()
+              .map(valor1-> {return valor1 * listadoNumeros2.get(contador.getAndIncrement());})
+              .forEach(valor1 -> System.out.println(valor1));
 
   }
 
@@ -56,4 +50,19 @@ public class Calculate {
       System.out.println("La division es: "+result);
   }
 
+    public List<Double> getListadoNumeros1() {
+        return listadoNumeros1;
+    }
+
+    public void setListadoNumeros1(List<Double> listadoNumeros1) {
+        this.listadoNumeros1 = listadoNumeros1;
+    }
+
+    public List<Double> getListadoNumeros2() {
+        return listadoNumeros2;
+    }
+
+    public void setListadoNumeros2(List<Double> listadoNumeros2) {
+        this.listadoNumeros2 = listadoNumeros2;
+    }
 }
